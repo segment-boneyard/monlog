@@ -14,7 +14,7 @@ $ npm install -g monlog
 
 ```
 
-  Usage: _monlog [options]
+  Usage: monlog [options]
 
   Options:
 
