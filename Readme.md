@@ -38,27 +38,23 @@ $ npm install -g monlog
 
 ### GET /
 
-  Search with a JSON or form-data body:
-
-```
-$ GET / -d 'level=error&type=upload'
-```
-
-### GET /search
-
   Search with [monquery](https://github.com/visionmedia/node-monquery) support:
 
 ```
-$ GET /search -d 'level:error AND type:upload'
+GET / level:error AND type:upload
 ```
 
-### Limiting responses
+  Limit responses with `?limit`:
 
-  Both search routes support `?limit=N` to limit the number of responses.
+```
+GET /?limit=1 level:error
+```
 
-### Filtering responses
+  Filter responses with `?filter`:
 
-  Both search routes support `?fields=hostname,type` to limit the response fields.
+```
+GET /?limit=1&fields=type,level,hostname level:error
+```
 
 ## Capping the logs
 

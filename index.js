@@ -27,8 +27,7 @@ app.use(responseTime());
 
 // routes
 
-app.use(route.get('/search', search));
-app.use(route.get('/', get));
+app.use(route.get('/', search));
 app.use(route.post('/', create));
 
 /**
@@ -42,21 +41,7 @@ app.use(route.post('/', create));
 
 function *search() {
   var body = yield text(this);
-  var query = monquery(body);
-  this.body = yield logs.find(query, options(this));
-}
-
-/**
- * GET to query logs.
- *
- * Query:
- *
- *  - `limit` response limit [20]
- *  - `fields` response fields
- */
-
-function *get() {
-  var query = yield parse(this);
+  var query = body ? monquery(body) : {};
   this.body = yield logs.find(query, options(this));
 }
 
