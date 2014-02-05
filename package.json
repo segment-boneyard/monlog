@@ -1,0 +1,35 @@
+{
+  "name": "monlog",
+  "version": "0.0.1",
+  "repository": "segmentio/monlog",
+  "description": "MongoDB logging server & API",
+  "keywords": [
+    "mongo",
+    "log",
+    "logging"
+  ],
+  "dependencies": {
+    "koa": "~0.3.0",
+    "co-monk": "0.0.1",
+    "monk": "~0.7.1",
+    "koa-logger": "~1.1.1",
+    "koa-response-time": "~1.0.1",
+    "koa-json": "0.0.1",
+    "co-body": "0.0.1",
+    "koa-route": "~1.0.2",
+    "http-assert": "~1.0.1",
+    "monquery": "0.0.1",
+    "commander": "~2.1.0",
+    "v8-argv": "~0.2.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "superagent": "~0.16.0",
+    "co": "~3.0.2"
+  },
+  "bin": {
+    "monlog": "bin/monlog"
+  },
+  "license": "MIT"
+}

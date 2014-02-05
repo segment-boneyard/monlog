@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('commander');
+var pkg = require('../package');
+var app = require('..');
+
+// options
+
+program
+  .version(pkg.version)
+  .option('-p, --port <n>', 'port number [3000]', '3000')
+  .parse(process.argv);
+
+// port
+
+var port = ~~program.port;
+
+// listen
+
+app.listen(port);
+console.log('listening on port %d', port);
