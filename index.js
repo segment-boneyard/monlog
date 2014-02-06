@@ -34,8 +34,7 @@ app.use(route.post('/', create));
 
 var hits = 0;
 setInterval(function(){
-  var now = new Date;
-  console.log('%s - calls: %d', now.toUTCString(), hits);
+  console.log('%s - calls: %d', new Date().toUTCString(), hits);
   hits = 0;
 }, 5000);
 
@@ -61,6 +60,7 @@ function *stats() {
 function *search() {
   var body = yield text(this);
   var query = body ? monquery(body) : {};
+  console.log('%s - query: %j -> %j', new Date().toUTCString(), body, query);
   this.body = yield logs.find(query, options(this));
 }
 
