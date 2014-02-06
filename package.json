@@ -1,6 +1,6 @@
 {
   "name": "monlog",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": "segmentio/monlog",
   "description": "MongoDB logging server & API",
   "keywords": [
