@@ -4,6 +4,8 @@
   MongoDB log server supporting [monquery](https://github.com/visionmedia/node-monquery)
   for human-friendly queries, and regular JSON queries. Built with [Koa](http://koajs.com) and requires node 0.11.x.
 
+  You may want to use the [monlog-cli](https://github.com/segmentio/monlog-cli) as well.
+
 ## Installation
 
 ```
