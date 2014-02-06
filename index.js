@@ -57,7 +57,7 @@ function *stats() {
  */
 
 function *search() {
-  var body = yield text(this);
+  var body = this.query.query;
   var query = body ? monquery(body) : {};
   console.log('%s - query: %j -> %j', new Date().toUTCString(), body, query);
   this.body = yield logs.find(query, options(this));
@@ -107,19 +107,4 @@ function limit(ctx) {
 
 function fields(ctx) {
   if (ctx.query.fields) return ctx.query.fields.split(',');
-}
-
-/**
- * Buffer request.
- */
-
-function text(ctx) {
-  return function(fn){
-    var buf = '';
-    ctx.req.setEncoding('utf8');
-    ctx.req.on('data', function(d){ buf += d });
-    ctx.req.on('end', function(){
-      fn(null, buf);
-    });
-  }
 }

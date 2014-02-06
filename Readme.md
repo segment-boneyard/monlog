@@ -38,10 +38,11 @@ $ npm install -g monlog
 
 ### GET /
 
-  Search with [monquery](https://github.com/visionmedia/node-monquery) support:
+  Search with [monquery](https://github.com/visionmedia/node-monquery) support,
+  via the `?query` parameter:
 
 ```
-GET / level:error AND type:upload
+GET /?query=level:error+AND+type:upload
 ```
 
   Limit responses with `?limit`:
