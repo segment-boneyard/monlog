@@ -5,7 +5,6 @@
 
 var responseTime = require('koa-response-time');
 var assert = require('http-assert');
-var logger = require('koa-logger');
 var monquery = require('monquery');
 var route = require('koa-route');
 var json = require('koa-json');
@@ -21,15 +20,24 @@ var app = module.exports = koa();
 
 // middleware
 
-app.use(logger());
 app.use(json());
 app.use(responseTime());
+app.use(count());
 
 // routes
 
 app.use(route.get('/stats', stats));
 app.use(route.get('/', search));
 app.use(route.post('/', create));
+
+// hit ticker
+
+var hits = 0;
+setInterval(function(){
+  var now = new Date;
+  console.log('%s - calls: %d', now.toUTCString(), hits);
+  hits = 0;
+}, 5000);
 
 /**
  * GET stats.
@@ -99,6 +107,17 @@ function limit(ctx) {
 
 function fields(ctx) {
   if (ctx.query.fields) return ctx.query.fields.split(',');
+}
+
+/**
+ * Count hits.
+ */
+
+function count() {
+  return function *(next){
+    ++hits;
+    yield next;
+  }
 }
 
 /**

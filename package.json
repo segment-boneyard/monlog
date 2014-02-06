@@ -12,7 +12,6 @@
     "koa": "~0.3.0",
     "co-monk": "0.0.1",
     "monk": "~0.7.1",
-    "koa-logger": "~1.1.1",
     "koa-response-time": "~1.0.1",
     "koa-json": "0.0.1",
     "co-body": "0.0.1",
