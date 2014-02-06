@@ -27,8 +27,19 @@ app.use(responseTime());
 
 // routes
 
+app.use(route.get('/stats', stats));
 app.use(route.get('/', search));
 app.use(route.post('/', create));
+
+/**
+ * GET stats.
+ */
+
+function *stats() {
+  this.body = yield {
+    count: logs.count({})
+  };
+}
 
 /**
  * GET to query logs with monquery.

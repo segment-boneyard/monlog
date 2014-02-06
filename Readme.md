@@ -56,6 +56,16 @@ GET /?limit=1 level:error
 GET /?limit=1&fields=type,level,hostname level:error
 ```
 
+## GET /stats
+
+ Respond with log stats:
+
+```
+{
+  "count": 2041999
+}
+```
+
 ## Capping the logs
 
  To turn your `monlog` "logs" collection into a capped collection
