@@ -22,7 +22,6 @@ var app = module.exports = koa();
 
 app.use(json());
 app.use(responseTime());
-app.use(count());
 
 // routes
 
@@ -30,12 +29,12 @@ app.use(route.get('/stats', stats));
 app.use(route.get('/', search));
 app.use(route.post('/', create));
 
-// hit ticker
+// rate ticker
 
-var hits = 0;
+var rate = 0;
 setInterval(function(){
-  console.log('%s - calls: %d', new Date().toUTCString(), hits);
-  hits = 0;
+  console.log('%s - rate: %d', new Date().toUTCString(), rate);
+  rate = 0;
 }, 5000);
 
 /**
@@ -79,6 +78,7 @@ function *create() {
 
   yield logs.insert(body, { safe: false });
 
+  rate++;
   this.status = 201;
 }
 
@@ -107,17 +107,6 @@ function limit(ctx) {
 
 function fields(ctx) {
   if (ctx.query.fields) return ctx.query.fields.split(',');
-}
-
-/**
- * Count hits.
- */
-
-function count() {
-  return function *(next){
-    ++hits;
-    yield next;
-  }
 }
 
 /**
