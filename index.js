@@ -67,8 +67,9 @@ function *search() {
   // from support
   if (from) query.timestamp = { $gt: parseInt(from, 10) };
 
-  console.log('%s - query: %j -> %j', new Date().toUTCString(), body, query);
-  this.body = yield logs.find(query, options(this));
+  var opts = options(this);
+  console.log('%s - query: %j -> %j %j', new Date().toUTCString(), body, query, opts);
+  this.body = yield logs.find(query, opts);
 }
 
 /**
@@ -109,7 +110,7 @@ function options(ctx) {
  */
 
 function limit(ctx) {
-  return ctx.query.limit || 20;
+  return parseInt(ctx.query.limit || '20', 10);
 }
 
 /**
