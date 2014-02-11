@@ -17,7 +17,7 @@
     "co-body": "0.0.1",
     "koa-route": "~1.0.2",
     "http-assert": "~1.0.1",
-    "monquery": "0.0.1",
+    "monquery": "0.1.0",
     "commander": "~2.1.0",
     "v8-argv": "~0.2.0"
   },
