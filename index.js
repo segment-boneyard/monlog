@@ -89,7 +89,10 @@ function *create() {
 function options(ctx) {
   return {
     limit: limit(ctx),
-    fields: fields(ctx)
+    fields: fields(ctx),
+    sort: {
+      timestamp: -1
+    }
   }
 }
 
