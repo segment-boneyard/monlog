@@ -54,11 +54,19 @@ function *stats() {
  *
  *  - `limit` response limit [20]
  *  - `fields` response fields
+ *  - `from` timestamp
  */
 
 function *search() {
+  var from = this.query.from;
   var body = this.query.query;
+
+  // parse query
   var query = body ? monquery(body) : {};
+
+  // from support
+  if (from) query.timestamp = { $gt: parseInt(from, 10) };
+
   console.log('%s - query: %j -> %j', new Date().toUTCString(), body, query);
   this.body = yield logs.find(query, options(this));
 }

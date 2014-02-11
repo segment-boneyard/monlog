@@ -59,6 +59,12 @@ GET /?limit=1 level:error
 GET /?limit=1&fields=type,level,hostname level:error
 ```
 
+  Specify a starting date with the `?from` timestamp:
+
+```
+GET /?limit=5&from=1392084587557
+```
+
 ## GET /stats
 
  Respond with log stats:
