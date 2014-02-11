@@ -1,4 +1,10 @@
 
+0.3.0 / 2014-02-10
+==================
+
+ * add ?from=timestamp support
+ * change .timestamp to be descending
+
 0.2.1 / 2014-02-05
 ==================
 
