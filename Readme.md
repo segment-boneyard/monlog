@@ -72,10 +72,11 @@ GET /?limit=1&fields=type,level,hostname level:error
 ## Capping the logs
 
  To turn your `monlog` "logs" collection into a capped collection
- run the following command in mongo's shell:
+ run the following command in mongo's shell, where `size` here is
+ 20gb:
 
 ```js
-db.runCommand({ convertToCapped: 'logs', size: 100000 });
+db.runCommand({ convertToCapped: 'logs', size: 21474836480 });
 ```
 
 # License
