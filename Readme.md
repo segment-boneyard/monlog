@@ -53,7 +53,7 @@ GET /?query=level:error+AND+type:upload
 GET /?limit=1 level:error
 ```
 
-  Filter responses with `?filter`:
+  Filter responses with `?fields`:
 
 ```
 GET /?limit=1&fields=type,level,hostname level:error
